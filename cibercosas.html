@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cibercosas</title>
+	<style>
+	
+	* {
+	    font-family: arial, sans-serif;
+	    font-weight: 300;
+	}
+	
+	.calculadora {
+	    border-radius: 8px;
+	    background-color: #f2f2f2;
+	    padding: 18px;
+	    width: 90%;
+	    line-height: 36px;
+	}
+	
+	input, select {
+	    border-radius: 4px;
+	    border-width: 1px;
+	}
+	
+	.btn {
+	    background-color: lightblue;
+	    padding: 8px;
+	    margin-top: 12px;
+	}
+	
+	.span {
+	    background-color: #f2f2f2;
+	    color: red;
+	    font-weight: 800;
+	    border-width: 0px;
+	}
+	</style>
+	
+	<script type="text/javascript">
+        function calculadora() {
+            let hora22 = document.getElementById("hora1").value;
+            let soloHora = hora22.split(":");
+            let calculoHora = (parseInt(soloHora[0]) - parseInt(document.getElementById("huso1").value)) + parseInt(document.getElementById("huso2").value);
+            let ceroHora = `${calculoHora}:${soloHora[1]}`;
+            let masHora = `${calculoHora - 24}:${soloHora[1]} del día siguiente`;
+            let menosHora = `${calculoHora + 24}:${soloHora[1]} del día anterior`;
+            let resultado;
+            if (calculoHora >= 24) {
+                resultado = masHora  
+            } else if (calculoHora <= -1) {
+                resultado = menosHora
+            } else {resultado = ceroHora};
+            return document.getElementById("hora2").value = resultado
+            };
+    </script>
+</head>
+
+<body>
+	<H1>Cibercosas</H1>	
+	<div class="calculadora">
+        <p>CALCULADORA DE HUSOS HORARIOS (formato: 24 hs)</p>
+        <form id="calculadora">
+            <label for="hora1">HORARIO SUMINISTRADO: </label>
+                <input type="time" name="hora1" id="hora1">
+            <label for="huso1"> - </label>
+                <select name="huso1" id="huso1">
+                    <option selected="selected" value="0">UTC 0</option>
+                    <option value="-1">UTC -1</option>
+                    <option value="-2">UTC -2</option>
+                    <option value="-3">UTC -3 (ARG)</option>
+                    <option value="-4">UTC -4</option>
+                    <option value="-5">UTC -5</option>
+                    <option value="-6">UTC -6</option>
+                    <option value="-7">UTC -7</option>
+                    <option value="-8">UTC -8</option>
+                    <option value="-9">UTC -9</option>
+                    <option value="-10">UTC -10</option>
+                    <option value="-11">UTC -11</option>
+                    <option value="-12">UTC -12</option>
+                    <option value="1">UTC +1</option>
+                    <option value="2">UTC +2</option>
+                    <option value="3">UTC +3</option>
+                    <option value="4">UTC +4</option>
+                    <option value="5">UTC +5</option>
+                    <option value="6">UTC +6</option>
+                    <option value="7">UTC +7</option>
+                    <option value="8">UTC +8</option>
+                    <option value="9">UTC +9</option>
+                    <option value="10">UTC +10</option>
+                    <option value="11">UTC +11</option>
+                    <option value="12">UTC +12</option>
+                </select>
+            <br>
+            <label for="hora2">HORARIO RESULTANTE: </label>
+               <input type="text" name="hora2" id="hora2" value="" readonly class="span">
+            <label for="huso2"> - </label>
+                <select name="huso2" id="huso2">
+                    <option value="0">UTC 0</option>
+                    <option value="-1">UTC -1</option>
+                    <option value="-2">UTC -2</option>
+                    <option selected="selected" value="-3">UTC -3 (ARG) </option>
+                    <option value="-4">UTC -4</option>
+                    <option value="-5">UTC -5</option>
+                    <option value="-6">UTC -6</option>
+                    <option value="-7">UTC -7</option>
+                    <option value="-8">UTC -8</option>
+                    <option value="-9">UTC -9</option>
+                    <option value="-10">UTC -10</option>
+                    <option value="-11">UTC -11</option>
+                    <option value="-12">UTC -12</option>
+                    <option value="1">UTC +1</option>
+                    <option value="2">UTC +2</option>
+                    <option value="3">UTC +3</option>
+                    <option value="4">UTC +4</option>
+                    <option value="5">UTC +5</option>
+                    <option value="6">UTC +6</option>
+                    <option value="7">UTC +7</option>
+                    <option value="8">UTC +8</option>
+                    <option value="9">UTC +9</option>
+                    <option value="10">UTC +10</option>
+                    <option value="11">UTC +11</option>
+                    <option value="12">UTC +12</option>
+                </select>
+            <br>
+            <input type="button" name="calcular" id="calcular" value="CALCULAR"  onclick="calculadora()" class="btn">
+        </form>
+    </div>
+    
+    <div>
+    <h2>Consultas Whois</h2>
+    <h3>Soluciones integrales Whois/RDAP</h3>
+        <ul>
+            <li><a href="https://client.rdap.org/">Consulta protocolo RDAP vía client.rdap.org</a></li></ul><br><br>
+    <br>
+        Otras plataformas:
+        <ul>
+            <li><a href="https://www.infobyip.com/ipbulklookup.php">BULK Domain and IP lookup tool</a><b> *Para hacer consultas por cantidad -brinda pocos detalles de cada IP-</b></li>
+            <li><a href="https:/whois.domaintools.com/">REG.COM | REG.COM</a> <b> *Alternativa con buena calidad y presentación pero cantidad limitada de consultas</b></li>
+            <li><a href="https://who.is/">WHOIS Search, Domain Name, Website, and IP Tools - Who.is</a><b> *Calidad y presentación equilibrados</b></li>
+        </ul>
+    <h3>WHOIS - Organismos oficiales</h3>
+        <ul>
+            <li><a href="https://www.iana.org/">IANA Whois</a><b> RAIZ: Permite establecer a qué Registro Regional de Internet corresponde una dirección IP o que organización administra un dominio de nivel superior.</b></li>
+        </ul>
+    <h3>Registros Regionales de Internet</h3>
+            <ul>
+            <li><a href="https://lacnic.net/">LACNIC</a> <b> *Latinoamérica y parte del caribe</b></li>
+            <li><a href="https://www.ripe.net/">RIPE</a><b> *Europa, Russia, Asia -central y occidental-</b></li>
+            <li><a href="https://www.apnic.net/">APNIC</a><b> *Resto de Asia -Sur, Sudeste, Este- y Oceanía</b></li>
+            <li><a href="https://arin.net">ARIN</a> <b> *América del Norte y parte del caribe</b></li>
+            <li><a href="https://afrinic.net">AFRINIC</a> <b> *África</b></li>
+        </ul>
+    <h3>Whois de Administradores, Registrars y adminsitradores de ccTLDs</h3>
+        <ul>
+            <li><a href="https://webwhois.verisign.com/"> Verisign: registro autoritativo del TLD .com, indica a través de qué Registrar se registró un dominio .com</a></li>
+            <li><a href="https://nic.ar/whois">NIC Argentina</a></li>
+            <li><a href="https://whois.marcaria.com/en/africa/ml-domain-search">Whois - .ML - Domain Search in Mali</a></li>
+            <li><a href="https://www.nic.io/whois-search.htm">WHOIS - .IO WhosIs Search</a></li>
+            <li><a href="https://www.namesilo.com/whois.php">WHOIS Lookup - NameSilo</a></li>
+            <li><a href="https://www.namecheap.com/domains/whois/">Whois - Namecheap.com</a></li>
+            <li><a href="https://publicdomainregistry.com/whois/">Whois - Public Domain Registry - PDR</a></li>
+            <li><a href="https://ar.godaddy.com/whois">WHOIS | GoDaddy</a></li>
+            <li><a href="https://www.101domain.com/whois_search.htm">Whois - 101domain</a></li>
+        </ul>
+    <h3>DNS+</h3>
+        <ul>
+            <li><a href="https://viewdns.info/">ViewDNS.info - Your one source for DNS related tools!</a></li>
+            <li><a href="http://www.ipvoid.com/">IP Address Tools, Network Tools, DNS Tools | IPVoid</a></li>
+            <li><a href="https://mxtoolbox.com/NetworkTools.aspx">Network Tools From MxToolBox</a></li>
+            <li><a href="https://tools.dnsstuff.com/">Professional Toolset | DNSstuff</a></li>
+            <li><a href="https://toolbox.googleapps.com/apps/dig/">Google Dig</a></li>       
+        </ul>
+        <h3>Herramientas para descargar</h3>
+        <ul>
+            <li><a href="https://github.com/torakiki/pdfsam/releases/download/v4.2.7/pdfsam-4.2.7-windows.zip">PDFSam 4.2.7 - Versión portable</a></li>
+            <li><a href="https://github.com/torakiki/pdfsam/releases/download/v4.2.7/pdfsam-4.2.7.msi">PDFSam 4.2.7 - Versión para Windows 64bits</a></li>
+            <li><a href="https://github.com/torakiki/pdfsam/releases/download/v3.3.7/pdfsam-3.3.7.msi">PDFSam 3.3.7 - Versión para Windows 32bits</a></li>
+            <li><a href="https://www.nirsoft.net/utils/hashmyfiles-x64.zip">HashMyFiles - Versión para Windows 64bits</a></li>
+            <li><a href="https://www.nirsoft.net/utils/hashmyfiles.zip">HashMyFiles - Versión para Windows 32bits</a></li>
+        </ul>
+    </div>
+</html>
